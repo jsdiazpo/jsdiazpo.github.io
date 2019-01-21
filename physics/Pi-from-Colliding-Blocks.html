@@ -11828,13 +11828,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Completely mindblown, I decided to verify this probably useless but fascinating result, and maybe try to derive an analytical understanding of the how and why this <em>unexpected</em> result. The video gives credit to <a href="http://www.ux1.eiu.edu/~cfgg/">Gregory Galperin</a>, who discovered this result in the 1990s and published it in 2003 under the title <strong><em>Playing pool with $\pi$ (the number $\pi$ from a billiard point of view)</em></strong> [3]. Nonetheless, I have resisted the temptation to see Galperin's work and try my own version.</p>
-<p>In order to simplify the way to address the problem I have broken it down into three parts:</p>
-<ol>
-<li>Use simple mechanics to study the general motion of the two blocks</li>
-<li>Use the results from part 1 to confirm that the number of clacks is equal to the first $d$ digits of $\pi$ when the masses satisfy the relation $M/m = 100^{d-1}$</li>
-<li>Try to understand the connection between the problem and $\pi$</li>
-</ol>
+<p>Completely mindblown, I decided to verify this probably useless but fascinating result, and maybe try to derive an analytical understanding about the how and why this <em>unexpected</em> result. The video gives credit to <a href="http://www.ux1.eiu.edu/~cfgg/">Gregory Galperin</a>, who discovered this result in the 1990s and published it in 2003 under the title <strong><em>Playing pool with $\pi$ (the number $\pi$ from a billiard point of view)</em></strong> [3]. Nonetheless, I have resisted the temptation to see Galperin's work before trying my own version, which is presented in the following sections.</p>
 
 </div>
 </div>
@@ -11856,14 +11850,15 @@ N_\text{clacks} = N_\text{collisions} + N_\text{reflections} \tag*{(1)}
 \end{equation}<p><strong>Boundary conditions:</strong></p>
 <ul>
 <li>start: the initial state of the system is the large block (of mass $M$) moving with some constant speed $V_0$ before colliding with the small block (of mass $m$) initially at rest. </li>
-<li>end: the final state of the system is both block moving independently away from the wall, with the large block moving faster than the small block, which guarantees no further collisions.</li>
+<li>end: in the final state of the system the two blocks move independently away from the wall, with the large block moving faster than the small block, which guarantees no further collisions.</li>
 </ul>
-<p>The direction of motion in the initial state is defined to be positive. The final state is key for solving the problem as it determines the total number of clacks. In particular, the final state sets the boundary between the mathematical solution and the physical solution of interest.</p>
+<p>The direction of motion in the initial state is defined to be positive. The final state is key for solving the problem as it determines the total number of clacks. In particular, the final state sets the boundary between the mathematical solution and the physical solution of interest, as shown in Sec. 4.2.</p>
 <p><strong>Reflections:</strong> before hitting the wall, the small block moves with positive velocity, which is fully reversed after the collision. This can be proven in general by writting the conservation of total energy and momentum:</p>
 \begin{eqnarray}
-\frac12 mv^2_\text{before} &=& \frac12 mv^2_\text{after} \tag*{(2)}\\
-mv_\text{before} &=& mv_\text{after} \tag*{(3)}\\
-\end{eqnarray}<p>This system of equations has two solutions: $v_\text{after} = v_\text{before}$ and $v_\text{after} = -v_\text{before}$. The first solution indicates that the block moves across the wall, so although mathematically valid this is a unphysical solution. The second solution shows that the block bounces against the wall and after the reflection will move with the same speed in the opposite direction. This shows that the role played by the wall in the dynamics of the problem is by reversing the sign of the small block's velocity before the next collision.</p>
+\frac12 mv^2_\text{before} &=& \frac12 mv^2_\text{after}, \tag*{(2)}\\
+mv_\text{before} &=& mv_\text{after}; \tag*{(3)}\\
+\end{eqnarray}<p>where contributions from the large block are ignored as its does participate in the reflection process.
+This system of equations has two solutions: $v_\text{after} = v_\text{before}$ and $v_\text{after} = -v_\text{before}$. The first solution indicates that the block moves across the wall, so although mathematically valid this is a unphysical solution. The second solution shows that the block bounces against the wall and after the reflection will move with the same speed in the opposite direction. This shows that the role played by the wall in the dynamics of the problem is by reversing the sign of the small block's velocity before the next collision.</p>
 
 </div>
 </div>
@@ -11875,40 +11870,40 @@ mv_\text{before} &=& mv_\text{after} \tag*{(3)}\\
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Collisions:</strong> the most interesting part of the process occurs when the blocks collide with one another, as one will transfer momentum to the other with each collision. For describing the process in general, we will consider the $k$-th collision between the blocks having velocities $V_k$ and $-v_k$ to determine their velocities $V_{k+1}$ and $v_{k+1}$ after the collision. Conservation of energy and momentum lead to:</p>
 \begin{align*}
-\frac12 MV^2_k + \frac12 mv^2_k  &=& \frac12 MV^2_{k+1} + \frac12 mv^2_{k+1} \tag*{(4)}\\
-MV_k - mv_k &=& MV_{k+1} + mv_{k+1} \tag*{(5)}\\
+\frac12 MV^2_k + \frac12 mv^2_k  &= \frac12 MV^2_{k+1} + \frac12 mv^2_{k+1}, \tag*{(4)}\\
+MV_k - mv_k &= MV_{k+1} + mv_{k+1}. \tag*{(5)}\\
 \end{align*}<p>The negative sign in front of $v_k$ indicates the direction of motion of this block is reversed between collisions, this is the action of the wall as proven above.
-This sign guarantees that all the information of the problem is contained in the system of equations. 
+This sign guarantees that all the information of the problem, including the reflection in the wall, is contained in the system of equations. 
 The only exception is for the first collision (as there is no reflection before the first collision); however, $v_0=0$ so the sign will not affect the result and the equations are still valid.
 Defining the ratio between the block masses</p>
 \begin{align*}
 \lambda = \frac{M}{m} \tag*{(6)}
 \end{align*}<p>and simplifying redundant terms, the system of equations can be written as</p>
 \begin{align*}
-\text{conservation of energy  :} \qquad & \lambda V^2_k + v^2_k = \lambda V^2_{k+1} + v^2_{k+1}
+\text{conservation of energy  :} \qquad & \lambda V^2_k + v^2_k = \lambda V^2_{k+1} + v^2_{k+1},
 \tag*{(7)} \\
-\text{conservation of momentum:} \qquad & \, \lambda V_k - v_k = \lambda V_{k+1} + v_{k+1}
+\text{conservation of momentum:} \qquad & \, \lambda V_k - v_k = \lambda V_{k+1} + v_{k+1}.
 \tag*{(8)}
 \end{align*}<p>Solving the second equation for $v_{k+1}$ and replacing in the first equation we get</p>
 \begin{eqnarray}
-v^2_k + \lambda V^2_k &=& \big(\lambda V_k - v_k - \lambda V_{k+1}\big)^2 + \lambda V^2_{k+1} 
+v^2_k + \lambda V^2_k &=& \big(\lambda V_k - v_k - \lambda V_{k+1}\big)^2 + \lambda V^2_{k+1} ,
 \end{eqnarray}<p>which can be rearranged as a quadratic equation for $V_{k+1}$</p>
 \begin{align}
-0 &= (\lambda+1) V_{k+1}^2 - 2 \big(\lambda V_k - v_k \big)V_{k+1} + (\lambda-1) V_{k}^2 - 2 V_{k}v_{k}
+0 &= (\lambda+1) V_{k+1}^2 - 2 \big(\lambda V_k - v_k \big)V_{k+1} + (\lambda-1) V_{k}^2 - 2 V_{k}v_{k},
 \tag*{(9)}
 \end{align}<p>where $\lambda>0$ has been used.
 This can be easily solved after some algebraic manipulations</p>
 \begin{align}
-V_{k+1} &= \frac{1}{\lambda+1}\big( (\lambda V_k - v_k) \pm (V_k + v_k) \big) \tag*{(10)}
+V_{k+1} &= \frac{1}{\lambda+1}\big( (\lambda V_k - v_k) \pm (V_k + v_k) \big) \tag*{(10)}.
 \end{align}<p>In order to choose one of the two solutions we can consider what happens for the first collision ($k=0$), in which the small block is at rest:</p>
 \begin{align}
 V_{1} &= \frac{1}{\lambda+1}\big( (\lambda V_0 - v_0) \pm (V_k + v_0) \big)
-= \left\{\begin{array}{cc} V_0 & \text{(+)}\\ 0 & (-) \end{array}\right. \tag*{(11)}
+= \left\{\begin{array}{cc} V_0 & \text{(+)}\\ 0 & (-) \end{array}\right. \tag*{(11)}.
 \end{align}<p>The solution using the positive root ($+$) shows that after the first collision the large block continues unaltered, going through the small block. For this reason we conclude that this solution is unphysical and that the negative root ($-$) is the physical solution to be used.
 Then, the solution can be replaced into eq. (8) to find the velocity of the blocks after the $k$-th collistion</p>
 \begin{align}
-V_{k+1} &= \left(\frac{\lambda-1}{\lambda+1}\right) V_k - \left(\frac{2}{\lambda+1}\right) v_k \tag*{(12)} \\
-v_{k+1} &= \left(\frac{2\lambda}{\lambda+1}\right) V_k + \left(\frac{\lambda-1}{\lambda+1}\right) v_k \tag*{(13)}
+V_{k+1} &= \left(\frac{\lambda-1}{\lambda+1}\right) V_k - \left(\frac{2}{\lambda+1}\right) v_k \tag*{(12)}, \\
+v_{k+1} &= \left(\frac{2\lambda}{\lambda+1}\right) V_k + \left(\frac{\lambda-1}{\lambda+1}\right) v_k. \tag*{(13)}
 \end{align}<p>This system recursively describes how the velocity of each block changes after each collision as a function of the mass ratio $\lambda$ and the initial velocity $V_0$.</p>
 
 </div>
@@ -11921,9 +11916,9 @@ v_{k+1} &= \left(\frac{2\lambda}{\lambda+1}\right) V_k + \left(\frac{\lambda-1}{
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="2.2-Example:-block-of-equal-mass-$(\lambda=1)$">2.2 Example: block of equal mass $(\lambda=1)$<a class="anchor-link" href="#2.2-Example:-block-of-equal-mass-$(\lambda=1)$">&#182;</a></h3><p>A simple check of the equations obtained above can be performed for the case when the two blocks have the same mass: $M=m$. In this case equations (12) and (13) reduce to</p>
 \begin{align}
-V_{k+1} &= -v_k \tag*{(14)} \\
-v_{k+1} &= \;\;V_k \tag*{(15)}
-\end{align}<p>which indicates that after a collision the momentum of a block is fully transferred to the other. 
+V_{k+1} &= -v_k ,\tag*{(14)} \\
+v_{k+1} &= \;\;V_k .\tag*{(15)}
+\end{align}<p>This result indicates that after a collision the momentum of a block is fully transferred to the other. 
 We can now follow the evolution of the system by evaluating for succesive values of $k$.</p>
 <ul>
 <li><p>$k=1$: before the first collision the large block moves with positive velocity $V_0$ towards the second block at rest $v_0=0$; after the collision the large block has transferred all its momentum and remains at rest $V_1=0$, whereas the small block moves with velocity $v_1=V_0$ towards the wall</p>
@@ -11936,13 +11931,14 @@ We can now follow the evolution of the system by evaluating for succesive values
 We introduce here the notation $k_\text{last}$ to denote the value of $k$ after which the process ends.
 In the previous example $k_\text{last}=2$; in which case we could count $N_\text{collisions} = 2$ collisions and $N_\text{reflections} = 1$ reflections for a total of $N_\text{clacks} = N_\text{collisions} + N_\text{reflections} = 3$ clacks.
 In this example we notice that $N_\text{collisions} = k_\text{last}$ (by definition) and $N_\text{reflections} = k_\text{last} -  1$, from where we can write the total number of clacks to be $N_\text{clacks}=2k_\text{last} -  1$; however, this relationship is only valid if $v_{k_\text{last}}\ge0$. 
-When $v_{k_\text{last}}<0$ the small block moves towards the wall and no matter how small its speed it will eventually hit the wall one more time. In this case we will find $N_\text{collisions} = k_\text{last}=N_\text{reflections} = k_\text{last}$.
+When $v_{k_\text{last}}<0$ the small block moves towards the wall so it will eventually hit it one more time. 
+In this case we will find $N_\text{collisions} = N_\text{reflections} = k_\text{last}$.
 This occurs for example for $\lambda=10^4$ and nicely shown in the <em>3Blue1Brown</em> video at <a href="https://www.youtube.com/watch?v=HEfHFsfGXjs&amp;feature=youtu.be&amp;t=105">t=1m45s</a>.</p>
 <p>We can now explicitly write the two possible conditions that will make the process end:</p>
 <ul>
-<li><p>condition <em>i</em>: if after a collision we find $V_{k+1} < v_{k+1} \le 0$, then the process ends with $k_\text{last}=k+1$. In this case neither of the blocks is moving towards the wall and the large block moves away faster so the small block can never reach it. The total number of clacks is given by $N_\text{clacks} = 2k_\text{last} - 1$.</p>
+<li><p>condition <em>i</em>: if after a collision we find $V_{k+1} < v_{k+1} \le 0$, then neither of the blocks is moving towards the wall and the large block moves away faster so the small block can never reach it. The total number of clacks is given by $N_\text{clacks} = 2k_\text{last} - 1$.</p>
 </li>
-<li><p>condition <em>ii</em>: if after a collision we find $0 < v_{k+1} \le -V_{k+1}$, then the process ends with $k_\text{last}=k+1$. In this case the large block moves away from the wall faster than the small block moves towards the wall. One more reflection will occur; however, since $|V_{k+1}| > |v_{k+1}|$ the small block can never reach the large one. The total number of clacks is given by $N_\text{clacks} = 2k_\text{last}$.</p>
+<li><p>condition <em>ii</em>: if after a collision we find $0 < v_{k+1} \le -V_{k+1}$, then the large block moves away from the wall faster than the small block moves towards the wall. One more reflection will occur; however, since $|V_{k+1}| > |v_{k+1}|$ the small block can never reach the large one. The total number of clacks is given by $N_\text{clacks} = 2k_\text{last}$.</p>
 </li>
 </ul>
 <p>In summary:</p>
@@ -11951,7 +11947,8 @@ N_\text{clacks} = \left\{\begin{array}{lll}
 2k_\text{last} - 1 & \text{if}\; V_{k+1} < v_{k+1} \le 0 & \text{(cond. $i$)}\\
 2k_\text{last} & \text{if}\; 0 < v_{k+1} \le -V_{k+1} & \text{(cond. $ii$)}
 \end{array}\right. \tag*{(16)}
-\end{align}<p>These conditions will turn out to be critical in the simulation presented in Sec. 2 as well as the (for now) misterious relation between the total number of clacks $N_\text{clacks}$ and certain number of digits of $\pi$, which is discussed in Sec. 3.</p>
+\end{align}<p>In both cases the process ends with $k_\text{last}=k+1$. 
+These conditions will turn out to be critical in the simulation presented in Sec. 2 as well as the (for now) misterious relation between the total number of clacks $N_\text{clacks}$ and certain number of digits of $\pi$, which is discussed in Sec. 3.</p>
 
 </div>
 </div>
@@ -11970,7 +11967,7 @@ Conditions (16) will be used to break the loop and get the value of <code>k</cod
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -13720,25 +13717,25 @@ time: 7.2 sec
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="4.1-Analytical--treatment">4.1 Analytical  treatment<a class="anchor-link" href="#4.1-Analytical--treatment">&#182;</a></h3><p>The plots of the velocity of each block clearly show that they can be represented by trigonometric functions of the number of collisions $k$; this feature arises from the conservation of energy (7). Since this equation is valid for all collisions we can write</p>
 \begin{align*}
-\lambda V^2_k + v^2_k = \lambda V^2_{0} + v^2_{0} = \lambda V^2_{0} \tag*{(17)}
+\lambda V^2_k + v^2_k = \lambda V^2_{0} + v^2_{0} = \lambda V^2_{0} ,\tag*{(17)}
 \end{align*}<p>where the right-hand side is a constant given in terms of the initial conditions. 
-This is the equation of an ellipse and it can be easily transformed to the equation of a circle by scalling $V_k\to\tilde{V}_k=\sqrt{\lambda}V_k$, which allows to write conservation of energy in the form</p>
+This is the equation of an ellipse and it can be easily transformed to the equation of a circle by scalling $V_k\to\tilde{V}_k=\sqrt{\lambda}V_k$, which allows writing conservation of energy in the form</p>
 \begin{align*}
-\tilde{V}^2_k + v^2_k = \tilde{V}^2_{0} \tag*{(18)}
+\tilde{V}^2_k + v^2_k = \tilde{V}^2_{0} ,\tag*{(18)}
 \end{align*}<p>corresponding to a circle of radius $\tilde{V}_0$ in the $(\tilde{V}_k,v_k)$ space. The two variables $(\tilde{V}_k, v_k)$ can be parametrized in terms of trigonometric functions</p>
 \begin{align*}
-\tilde{V}_k &= \tilde{V}_0\cos\theta_k &\to V_k &= V_0\cos\theta_k \tag*{(19)}\\
-v_k &= \tilde{V}_0\sin\theta_k&\to v_k &= \sqrt{\lambda}V_0\sin\theta_k \tag*{(20)}\\
+\tilde{V}_k &= \tilde{V}_0\cos\theta_k &\to V_k &= V_0\cos\theta_k ,\tag*{(19)}\\
+v_k &= \tilde{V}_0\sin\theta_k&\to v_k &= \sqrt{\lambda}V_0\sin\theta_k ,\tag*{(20)}\\
 \end{align*}<p>where we have transformed back to the original variables. The angle $\theta_k$ is some compact parameter and from the plots in the previous section we can write</p>
 \begin{align*}
-\theta_k = \frac{\pi k}{k_{\{v_k=0\}}} \tag*{(21)}
-\end{align*}<p>where $k=k_{\{v_k=0\}}$ is defined as the point where the small block comes to rest; equivalently, this also corresponds to the point where the large block moves away from the wall with the same speed as it approached the wall initially</p>
+\theta_k = \frac{\pi k}{k_{\{v_k=0\}}} ,\tag*{(21)}
+\end{align*}<p>where $k=k_{\{v_k=0\}}$ is defined as the point where the small block would come to rest; equivalently, this also corresponds to the point where the large block would move away from the wall with the same speed as it approached the wall initially</p>
 \begin{align*}
 v_{k_{\{v_k=0\}}} &= \;\;0, \tag*{(22)} \\
 V_{k_{\{v_k=0\}}} &= -V_0. \tag*{(23)}
 \end{align*}<p>Notice that $k_{\{v_k=0\}}$ is not necessariy equal to $k_\text{last}$. 
 In fact, $k_{v_k=0}$ is almost never an integer.
-The example in Sec. 1.2 shows that for $\lambda=1$ the process ends with the small block at rest,
+The example in Sec. 2.2 shows that for $\lambda=1$ the process ends with the small block at rest,
 in this particular case we find $k_{v_k=0}=k_\text{last}$.</p>
 
 </div>
@@ -13749,12 +13746,12 @@ in this particular case we find $k_{v_k=0}=k_\text{last}$.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let us now use the recursive formula for velocities between collisions (12)</p>
+<p>Let us now use the parametrization (21) in the recursive formula for velocities between collisions (12):</p>
 \begin{align}
 V_{k+1} &= \left(\frac{\lambda-1}{\lambda+1}\right) V_k - \left(\frac{2}{\lambda+1}\right) v_k \\
 V_0\cos\theta_{k+1} &= \left(\frac{\lambda-1}{\lambda+1}\right) V_0\cos\theta_k - \left(\frac{2}{\lambda+1}\right) \sqrt{\lambda}V_0\sin\theta_k \\
-\cos\left(\theta_{k}+\frac{\pi}{k_{\{v_k=0\}}}\right) &= \left(\frac{\lambda-1}{\lambda+1}\right) \cos\theta_k - \left(\frac{2\sqrt{\lambda}}{\lambda+1}\right) \sin\theta_k \\
-\end{align}<p>where we have used the parametrization (21). Now we can expand the left-hand side using the cosine of the sum of two angles</p>
+\cos\left(\theta_{k}+\frac{\pi}{k_{\{v_k=0\}}}\right) &= \left(\frac{\lambda-1}{\lambda+1}\right) \cos\theta_k - \left(\frac{2\sqrt{\lambda}}{\lambda+1}\right) \sin\theta_k .\\
+\end{align}<p>Now we can expand the left-hand side using the cosine of the sum of two angles</p>
 \begin{align}
 \cos\theta_{k}\,\cos\left(\frac{\pi}{k_{\{v_k=0\}}}\right) - \sin\theta_{k}\,\sin\left(\frac{\pi}{k_{\{v_k=0\}}}\right) 
 &= \left(\frac{\lambda-1}{\lambda+1}\right) \cos\theta_k - \left(\frac{2\sqrt{\lambda}}{\lambda+1}\right) \sin\theta_k 
@@ -13764,21 +13761,12 @@ V_0\cos\theta_{k+1} &= \left(\frac{\lambda-1}{\lambda+1}\right) V_0\cos\theta_k 
 \cos\left(\frac{\pi}{k_{\{v_k=0\}}}\right) &= \frac{\lambda-1}{\lambda+1}, \tag*{(23)}\\
 \sin\left(\frac{\pi}{k_{\{v_k=0\}}}\right) &= \frac{2\sqrt{\lambda}}{\lambda+1}.
 \tag*{(24)}\\
-\end{align}<p>The same result is obtained .
-By taking the ratio between these quantities we find</p>
+\end{align}<p>The same result is obtained if eq. (13) is used instead.
+By taking the ratio between these last two expressions we find</p>
 \begin{align}
 k_{\{v_k=0\}} = \pi \, \arctan\left(\dfrac{2\sqrt{\lambda}}{\lambda-1}\right)^{-1}. 
 \tag*{(25)}\\
-\end{align}
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This result shows $k_{\{v_k=0\}}$ as a continuos quantity. Its relation to the discrete value of the total number of collisions $N_\text{collisions} = k_\text{last}$ arises as a direct consequence of the conditions for the end of the process discussed in Sec. 1.2 and it is explored further in the next section.</p>
+\end{align}<p>This result shows $k_{\{v_k=0\}}$ as a continuos quantity. Its relation to the discrete value of the total number of collisions $N_\text{collisions} = k_\text{last}$ arises as a direct consequence of the conditions for the end of the process discussed in Sec. 2.3 and it is explored further in the next section.</p>
 
 </div>
 </div>
@@ -13788,14 +13776,14 @@ k_{\{v_k=0\}} = \pi \, \arctan\left(\dfrac{2\sqrt{\lambda}}{\lambda-1}\right)^{-
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="4.2-The-end-of-the-process-and-the-final-state-conditions">4.2 The end of the process and the final-state conditions<a class="anchor-link" href="#4.2-The-end-of-the-process-and-the-final-state-conditions">&#182;</a></h3><p>In Sec. 2.3 was shown that there are two possibilities for the final state of the system, denoted conditions <em>i</em> and <em>ii</em> in eq. (16).
-Dividing by the velocity of the large block these conditions can be written as</p>
+<h3 id="4.2-The-end-of-the-process-and-the-final-state-conditions">4.2 The end of the process and the final-state conditions<a class="anchor-link" href="#4.2-The-end-of-the-process-and-the-final-state-conditions">&#182;</a></h3><p>In Sec. 2.3 we found that there are two possibilities for the final state of the system, denoted conditions <em>i</em> and <em>ii</em> in eq. (16).
+Dividing by the final velocity of the large block $V_{k_\text{last}}<0$ these conditions can be written as</p>
 \begin{align}
 \text{(cond. $i$)}  && 0 &\le \dfrac{v_{k_\text{last}}}{V_{k_\text{last}}} < 1, \\
 \text{(cond. $ii$)} && -1 &< \dfrac{v_{k_\text{last}}}{V_{k_\text{last}}} < 0.
 \tag*{(26)}
 \end{align}<p>This result shows that these process-termination conditions are equivalent to determining the sign of the ratio $v_{k_\text{last}}/V_{k_\text{last}}$.
-From the analysis in Sec. 2.3 we know that when the process ends $V_{k_\text{last}}<0$; therefore, the conditions (26) can be written as</p>
+From the analysis in Sec. 2.3 we know that when the process ends $V_{k_\text{last}}<0$; therefore, the conditions (26) can also be written as</p>
 \begin{align}
 \text{(cond. $i$)}  && v_{k_\text{last}} \le 0, \\
 \text{(cond. $ii$)} && v_{k_\text{last}} > 0.
@@ -13818,19 +13806,19 @@ v_{k_\text{last}} = V_0 \sqrt\lambda \sin\left(\frac{k_\text{last} \pi}{k_{\{v_k
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We now notice a key feature of these two quantities: $k_\text{last}$ if a integer, whereas $k_{\{v_k=0\}}$ is a real number. 
+<p>We now notice a key feature of these two quantities: $k_\text{last}$ is a integer, whereas $k_{\{v_k=0\}}$ is a real number. 
 We can find one in terms of the other by rounding the value of $k_{\{v_k=0\}}$ to its nearest integer so we can write</p>
 \begin{align}
 k_\text{last} = \left[ k_{\{v_k=0\}} \right] 
-= \left[ \pi \, \arctan\left(\dfrac{2\sqrt{\lambda}}{\lambda-1}\right)^{-1}\right].
+= \left[ \pi \, \arctan\left(\dfrac{2\sqrt{\lambda}}{\lambda-1}\right)^{-1}\right],
 \tag*{(30)}
 \end{align}<p>where the brackets denote $[x]=$ <em>round the decimals of $x$ to the nearest integer.</em>
-Here we have finally found a way to relate the number of clacks to the mass-ration parameter $\lambda$.
-Notice that the initial velocity $V_0$ of the large block is irrelevant.
-This expression also serves to distinguish between conditions <em>i</em> and <em>ii</em> simply by the way the rounding is performed:</p>
+Here we have finally found a way to relate the number of clacks to the mass-ratio parameter $\lambda$.
+Notice that the magnitude of the initial velocity of the large block $|V_0|$ is irrelevant.
+The result in eq. (30) also serves to distinguish between conditions <em>i</em> and <em>ii</em> simply by the way the rounding is performed:</p>
 <ul>
-<li>if the number in brackets is rounded up ($k_\text{last} < k_{\{v_k=0\}}$), then condition <em>i</em> is valid</li>
-<li>if the number in brackets is rounded down ($k_\text{last} > k_{\{v_k=0\}}$), then condition <em>ii</em> is valid</li>
+<li>if the number in brackets is rounded up ($k_\text{last} > k_{\{v_k=0\}}$), then condition <em>i</em> is valid</li>
+<li>if the number in brackets is rounded down ($k_\text{last} < k_{\{v_k=0\}}$), then condition <em>ii</em> is valid</li>
 <li>if the number in brackets is an integer ($k_\text{last} = k_{\{v_k=0\}}$), then condition <em>i</em> is valid</li>
 </ul>
 <p>Using these results and eq. (16) we write the general form for the total number of clacks as</p>
@@ -13841,7 +13829,8 @@ N_\text{clacks}(\lambda) = 2\left[ \pi \, \arctan\left(\dfrac{2\sqrt{\lambda}}{\
 -1 & \text{if}\; [\cdots] \text{ rounds the value down}\\
 \;\;0 & \text{otherwise}
 \end{array}\right.. \tag*{(31)}
-\end{align}
+\end{align}<p>This the more general result for the numbers of clacks between the colliding blocks, including the clacks from reflections from the wall. Some particular examples are explicitly computed in the next section and a general formula is derived in Sec. 4.4.</p>
+
 </div>
 </div>
 </div>
@@ -13858,17 +13847,17 @@ Using the result (31) we have</p>
 N_\text{clacks}(100^0) &= 2\left[\pi \lim_{\lambda\to1} \arctan\left(\dfrac{2\sqrt{\lambda}}{\lambda-1}\right)^{-1}\right] + \delta N 
 = 2\left[\pi \lim_{x\to\infty} \arctan(x)^{-1} \right] + \delta N \\
 &= 2\left[\pi \,\left(\frac{\pi}{2}\right)^{-1} \right] + \delta N
-= 2\big[2 \big] + \delta N \qquad\qquad\leftarrow\text{[...] does not round the value down: } \delta N=-1 \\
+= 2\big[2 \big] + \delta N \qquad\qquad\qquad\qquad\leftarrow\text{[...] does not round the value down: } \delta N=-1 \\
 &= 2(2) - 1 = 4 - 1 = 3
 . \tag*{(32)}
 \end{align}<h4 id="Case-$d=2-\;(\lambda-=-100)$">Case $d=2 \;(\lambda = 100)$<a class="anchor-link" href="#Case-$d=2-\;(\lambda-=-100)$">&#182;</a></h4>\begin{align}
 N_\text{clacks}(100^1) &= 2\left[\pi \arctan\left(\dfrac{20}{99}\right)^{-1} \right] + \delta N 
-= 2\big[15.77\big] + \delta N \qquad\leftarrow\text{[...] does not round the value down: } \delta N=-1 \\
+= 2\big[15.77\big] + \delta N \qquad\qquad\leftarrow\text{[...] does not round the value down: } \delta N=-1 \\
 &= 2(16) - 1 = 31
 . \tag*{(33)}
 \end{align}<h4 id="Case-$d=3-\;(\lambda-=-100^2)$">Case $d=3 \;(\lambda = 100^2)$<a class="anchor-link" href="#Case-$d=3-\;(\lambda-=-100^2)$">&#182;</a></h4>\begin{align}
 N_\text{clacks}(100^2) &= 2\left[\pi \arctan\left(\dfrac{2\times10^2}{10^4-1}\right)^{-1} \right] + \delta N 
-= 2\big[157.08\big] + \delta N \qquad\leftarrow\text{[...] rounds the value down: } \delta N=0 \\
+= 2\big[157.08\big] + \delta N \qquad\qquad\leftarrow\text{[...] rounds the value down: } \delta N=0 \\
 &= 2(157) = 314
 . \tag*{(34)}
 \end{align}<h4 id="Case-$d=4-\;(\lambda-=-100^3)$">Case $d=4 \;(\lambda = 100^3)$<a class="anchor-link" href="#Case-$d=4-\;(\lambda-=-100^3)$">&#182;</a></h4>\begin{align}
@@ -13888,10 +13877,12 @@ N_\text{clacks}(100^5) &= 2\left[\pi \arctan\left(\dfrac{2\times10^5}{10^{10}-1}
 . \tag*{(37)}
 \end{align}<h4 id="Case-$d=7-\;(\lambda-=-100^6)$">Case $d=7 \;(\lambda = 100^6)$<a class="anchor-link" href="#Case-$d=7-\;(\lambda-=-100^6)$">&#182;</a></h4>\begin{align}
 N_\text{clacks}(100^6) &= 2\left[\pi \arctan\left(\dfrac{2\times10^6}{10^{12}-1}\right)^{-1} \right] + \delta N 
-= 2\big[1570796.33\big] + \delta N \qquad\leftarrow\text{[...] rounds the value down: } \delta N=0 \\
+= 2\big[1570796.33\big] + \delta N \qquad\qquad\leftarrow\text{[...] rounds the value down: } \delta N=0 \\
 &= 2(1570796) - 1 = 3141592
 . \tag*{(38)}
-\end{align}
+\end{align}<p>All the worked examples clearly show that eq. (31) properly gives the expected results based on the claim in Sec. 1 and the numerical results of the simulations in Sec. 3.
+For large values of $\lambda$ the generation of digits of $\pi$ can be written in a closed form, which is presented in the following section.</p>
+
 </div>
 </div>
 </div>
@@ -13900,28 +13891,31 @@ N_\text{clacks}(100^6) &= 2\left[\pi \arctan\left(\dfrac{2\times10^6}{10^{12}-1}
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="4.4-Analytical-approximation">4.4 Analytical approximation<a class="anchor-link" href="#4.4-Analytical-approximation">&#182;</a></h3><p>The results in Sec. 4.3 clearly show that eq. (31) properly generates the total number of clacks in agreement with the claim in Sec. 1 and the simulations in Sec. 3.
-Now we proceed to generalize the result for arbitrarily more digits of $\pi$, which is equivalent to $\lambda=100^{d-1}\gg1$.
-In this case the denominator in the arctan function in eq. (31) can be approximated in the form $\lambda-1\approx\lambda$, so the formula reduces to</p>
+<h3 id="4.4-Exact-analytical-expression">4.4 Exact analytical expression<a class="anchor-link" href="#4.4-Exact-analytical-expression">&#182;</a></h3><p>The results in Sec. 4.3 clearly show that eq. (31) properly generates the total number of clacks in agreement with the claim in Sec. 1 and the simulations in Sec. 3.
+Now we proceed to generalize the result for arbitrary number $d>1$ of digits of $\pi$, which is equivalent to $\lambda=100^{d-1}\gg1$.
+Recall that the special case $d=1$ was proven to correctly produce the first digit of $\pi$ in the previous section.
+Let us consider the Taylor series of the function of $\lambda$ in eq. (31) using the small parameter $1/\lambda \ll 1$:</p>
 \begin{align}
-N_\text{clacks}(\lambda) \approx 2\left[ \pi \, \lim_{\lambda\to\infty}\arctan\left(\dfrac{2}{\sqrt{\lambda}}\right)^{-1}\right] + \delta N.
+N_\text{clacks}(\lambda) \approx 2\left[ \frac{\pi \sqrt\lambda}{2} \left( 1+ \frac{1/\lambda}{3} + \mathcal{O}\big((1/\lambda)^2\big) \right)\right] + \delta N.
 \tag*{(39)}
-\end{align}<p>By defining a new variable $\varepsilon = 2/\sqrt{\lambda}$ we get</p>
+\end{align}<p>The claim is that only the first term is relevant, so let us focus on the second term: since we want to consider $\lambda=100^{d-1}$ we can write the second term in the sum as</p>
 \begin{align}
-N_\text{clacks}(\varepsilon) \approx 2\left[ \pi \, \lim_{\varepsilon\to0}\arctan\left(\varepsilon\right)^{-1}\right] + \delta N.
+\frac{1}{3 \lambda} = \frac{0.33}{100^{d-1}} = 0.\underbrace{00\cdots00}_{2d}33.
 \tag*{(40)}
-\end{align}<p>We can now use a series expansion of the arctan function $\arctan(\varepsilon) = \varepsilon + \mathcal(\varepsilon^3)$ to obtain</p>
+\end{align}<p>Since $d>1$ this correction could at most modify the ten thousandths place of unity; therefore, it cannot contribute to changes in the rounding of the overall factor $\pi\sqrt\lambda/2$.
+In the sum the terms of higher order in $1/\lambda$ will contribute even less.
+For this reason, even though we will keep only the first term series (39), the result after rounding this term is exact.</p>
+<p>We can now write</p>
 \begin{align}
-N_\text{clacks}(\varepsilon) &\approx 2\left[ \pi \, \varepsilon^{-1}\right] + \delta N \\
-N_\text{clacks}(\lambda) &\approx 2\left[ \pi \, \frac{\sqrt\lambda}{2}\right] + \delta N.
+N_\text{clacks}(\lambda) &= 2\left[ \frac12 \pi \sqrt\lambda \right] + \delta N.
 \tag*{(41)}
-\end{align}<p>Let us define</p>
+\end{align}<p>In order to analytically evaluate the rounding $[\ldots]$ let us define</p>
 \begin{align}
 \Omega = \pi \sqrt\lambda,
 \tag*{(42)}
 \end{align}<p>so that eq. (41) can be written simply as</p>
 \begin{align}
-N_\text{clacks}(\lambda\gg1) &\approx 2\left[ \frac{\Omega}{2}\right] + \delta N.
+N_\text{clacks}(\lambda) &= 2\left[ \frac{\Omega}{2}\right] + \delta N.
 \tag*{(43)}
 \end{align}<p>In general, the numerical value of $\Omega$ can be decomposed into an integer and a decimal part</p>
 \begin{align}
@@ -14003,7 +13997,7 @@ Therefore, eqn. (53) reduces to</p>
 \end{align}<p>where $\text{int}\big(\frac{x}{2}\big) = \frac12 \text{int}(x-1) = \frac12 \text{int}(x)-\frac12$ has been used.
 We can now replace results (50) and (55) into eq. (43):</p>
 \begin{align}
-N_\text{clacks}(\lambda\gg1) &\approx 2\left[ \frac{\Omega}{2}\right] + \delta N
+N_\text{clacks}(\lambda) &= 2\left[ \frac{\Omega}{2}\right] + \delta N
 = \left\{\begin{array}{lll} 
 \text{int}(\Omega) & \text{if}\; \text{int}(\Omega) \text{ is even } (\delta N=0)\\
 \big(\text{int}(\Omega)+1\big)-1 & \text{if}\; \text{int}(\Omega) \text{ is odd } (\delta N=-1)
@@ -14011,11 +14005,11 @@ N_\text{clacks}(\lambda\gg1) &\approx 2\left[ \frac{\Omega}{2}\right] + \delta N
 \tag*{(56)}
 \end{align}<p>This result shows that independent on whether $\text{int}(\Omega)$ is even or odd, the general expression for the total number of clacks is given by</p>
 \begin{align}
-N_\text{clacks}(\lambda\gg1) &= \text{int}(\Omega) = \text{int}\left(\pi \sqrt\lambda\right).
+N_\text{clacks}(\lambda) &= \text{int}(\Omega) = \text{int}\left(\pi \sqrt\lambda\right).
 \tag*{(57)}
-\end{align}<p>We can now use the general form for the mass-ratio in the claim $\lambda=100^{d-1}$, from where we find that the total naumber of clacks is</p>
+\end{align}<p>We can now use the general form for the mass-ratio in the claim $\lambda=100^{d-1}$, from where we find that the total number of clacks is</p>
 \begin{align}
-N_\text{clacks}(\lambda\gg1) = \text{int}\left(\pi 10^{d-1}\right),
+N_\text{clacks}(\lambda) = \text{int}\left(\pi 10^{d-1}\right),
 \tag*{(58)}
 \end{align}<p>which corresponds to a $d$-digit integer whose digits are given by the first $d$ digits of $\pi$.</p>
 
@@ -14050,19 +14044,6 @@ Interestingly, the derivation presented here deviates substantially from the ori
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
     </div>
   </div>
