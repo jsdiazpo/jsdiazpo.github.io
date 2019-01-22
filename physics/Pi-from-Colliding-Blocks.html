@@ -11857,7 +11857,7 @@ N_\text{clacks} = N_\text{collisions} + N_\text{reflections} \tag*{(1)}
 \begin{eqnarray}
 \frac12 mv^2_\text{before} &=& \frac12 mv^2_\text{after}, \tag*{(2)}\\
 mv_\text{before} &=& mv_\text{after}; \tag*{(3)}\\
-\end{eqnarray}<p>where contributions from the large block are ignored as its does participate in the reflection process.
+\end{eqnarray}<p>where contributions from the large block are not explicitly included because its momentum and energy remain unchanged in the reflection process.
 This system of equations has two solutions: $v_\text{after} = v_\text{before}$ and $v_\text{after} = -v_\text{before}$. The first solution indicates that the block moves across the wall, so although mathematically valid this is a unphysical solution. The second solution shows that the block bounces against the wall and after the reflection will move with the same speed in the opposite direction. This shows that the role played by the wall in the dynamics of the problem is by reversing the sign of the small block's velocity before the next collision.</p>
 
 </div>
@@ -11872,7 +11872,10 @@ This system of equations has two solutions: $v_\text{after} = v_\text{before}$ a
 \begin{align*}
 \frac12 MV^2_k + \frac12 mv^2_k  &= \frac12 MV^2_{k+1} + \frac12 mv^2_{k+1}, \tag*{(4)}\\
 MV_k - mv_k &= MV_{k+1} + mv_{k+1}. \tag*{(5)}\\
-\end{align*}<p>The negative sign in front of $v_k$ indicates the direction of motion of this block is reversed between collisions, this is the action of the wall as proven above.
+\end{align*}<p>Notice that no assumptions have been made about the sign of any velocity.
+Except for the initial condition, we do not want to force any block to move in any particular direction.
+This information is fully contained in the solutions of the system of equations.
+The negative sign in front of $v_k$ indicates the direction of motion of this block is reversed between collisions, this is the action of the wall as proven above.
 This sign guarantees that all the information of the problem, including the reflection in the wall, is contained in the system of equations. 
 The only exception is for the first collision (as there is no reflection before the first collision); however, $v_0=0$ so the sign will not affect the result and the equations are still valid.
 Defining the ratio between the block masses</p>
@@ -11927,7 +11930,7 @@ We can now follow the evolution of the system by evaluating for succesive values
 </li>
 </ul>
 <p>Mathematically, values for $k>2$ are perfectly valid; nevertheless, physically the process ends after the second collision because the blocks never collide again.</p>
-<h3 id="2.3-The-end-of-the-process">2.3 The end of the process<a class="anchor-link" href="#2.3-The-end-of-the-process">&#182;</a></h3><p>One of the key features of this problem is the identification of the necessary conditions for the process to end.
+<h3 id="2.3-Conditions-for-the-end-of-the-process">2.3 Conditions for the end of the process<a class="anchor-link" href="#2.3-Conditions-for-the-end-of-the-process">&#182;</a></h3><p>One of the key features of this problem is the identification of the necessary conditions for the process to end.
 We introduce here the notation $k_\text{last}$ to denote the value of $k$ after which the process ends.
 In the previous example $k_\text{last}=2$; in which case we could count $N_\text{collisions} = 2$ collisions and $N_\text{reflections} = 1$ reflections for a total of $N_\text{clacks} = N_\text{collisions} + N_\text{reflections} = 3$ clacks.
 In this example we notice that $N_\text{collisions} = k_\text{last}$ (by definition) and $N_\text{reflections} = k_\text{last} -  1$, from where we can write the total number of clacks to be $N_\text{clacks}=2k_\text{last} -  1$; however, this relationship is only valid if $v_{k_\text{last}}\ge0$. 
@@ -11948,7 +11951,8 @@ N_\text{clacks} = \left\{\begin{array}{lll}
 2k_\text{last} & \text{if}\; 0 < v_{k+1} \le -V_{k+1} & \text{(cond. $ii$)}
 \end{array}\right. \tag*{(16)}
 \end{align}<p>In both cases the process ends with $k_\text{last}=k+1$. 
-These conditions will turn out to be critical in the simulation presented in Sec. 2 as well as the (for now) misterious relation between the total number of clacks $N_\text{clacks}$ and certain number of digits of $\pi$, which is discussed in Sec. 3.</p>
+These conditions will turn out to be critical in the simulation presented in Sec. 3 as well as the (for now) misterious relation between the total number of clacks $N_\text{clacks}$ and certain number of digits of $\pi$.
+In fact, the analytical result obtained in Sec. 4 directly depends on the correct interpretation of these conditions.</p>
 
 </div>
 </div>
@@ -13777,6 +13781,7 @@ k_{\{v_k=0\}} = \pi \, \arctan\left(\dfrac{2\sqrt{\lambda}}{\lambda-1}\right)^{-
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="4.2-The-end-of-the-process-and-the-final-state-conditions">4.2 The end of the process and the final-state conditions<a class="anchor-link" href="#4.2-The-end-of-the-process-and-the-final-state-conditions">&#182;</a></h3><p>In Sec. 2.3 we found that there are two possibilities for the final state of the system, denoted conditions <em>i</em> and <em>ii</em> in eq. (16).
+These conditions refer to whether the last clack is produced by a collision between the blocks (cond. <em>i</em>) or by the small block being reflected by the wall one last time (cond. <em>i</em>).
 Dividing by the final velocity of the large block $V_{k_\text{last}}<0$ these conditions can be written as</p>
 \begin{align}
 \text{(cond. $i$)}  && 0 &\le \dfrac{v_{k_\text{last}}}{V_{k_\text{last}}} < 1, \\
@@ -13829,7 +13834,9 @@ N_\text{clacks}(\lambda) = 2\left[ \pi \, \arctan\left(\dfrac{2\sqrt{\lambda}}{\
 -1 & \text{if}\; [\cdots] \text{ rounds the value down}\\
 \;\;0 & \text{otherwise}
 \end{array}\right.. \tag*{(31)}
-\end{align}<p>This the more general result for the numbers of clacks between the colliding blocks, including the clacks from reflections from the wall. Some particular examples are explicitly computed in the next section and a general formula is derived in Sec. 4.4.</p>
+\end{align}<p>This the more general result for the numbers of clacks between the colliding blocks, including the clacks from reflections from the wall. 
+The two possible values that the term $\delta N$ can take refer to whether the last clack in the process is produced by a collision between the blocks ($\delta N=-1$) or by the small block being reflected by the wall one last time ($\delta N=0$).
+Some particular examples are explicitly computed in the next section and a general formula is derived in Sec. 4.4.</p>
 
 </div>
 </div>
@@ -14010,8 +14017,11 @@ N_\text{clacks}(\lambda) &= \text{int}(\Omega) = \text{int}\left(\pi \sqrt\lambd
 \end{align}<p>We can now use the general form for the mass-ratio in the claim $\lambda=100^{d-1}$, from where we find that the total number of clacks is</p>
 \begin{align}
 N_\text{clacks}(\lambda) = \text{int}\left(\pi 10^{d-1}\right),
+\qquad \lambda=100^{d-1}.
 \tag*{(58)}
-\end{align}<p>which corresponds to a $d$-digit integer whose digits are given by the first $d$ digits of $\pi$.</p>
+\end{align}<p>This expression corresponds to a $d$-digit integer whose digits are given by the first $d$ digits of $\pi$.
+Even though in this section we have used $d>1$, we already showed in the first case of Sec. 4.2 that the result (58) is also valid for $d=1$.
+Moreover, the result obtained here is independent of the final configuration state of the system as we have explicitly considered both cases: when the last clack is produced by a collision between the blocks and when the small block is reflected by the wall one last time.</p>
 
 </div>
 </div>
