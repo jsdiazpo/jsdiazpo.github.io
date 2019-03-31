@@ -1,4 +1,4 @@
-html, body {
+﻿html, body {
 	height: 100%;
 }
 
@@ -315,6 +315,42 @@ ul.style2 a:hover {
 
 
 
+<style>
+.fa {
+  padding: 5px;
+  font-size: 25px;
+  width: 25px;
+  text-align: center;
+  text-decoration: none;
+  margin: 0px 0px;
+  border-radius: 20%;
+  }
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-twitter {
+  background: white;
+  color: #000000;
+}
+
+.fa-github {
+  background: white;
+  color: #000000;
+}
+
+.fa-linkedin {
+  background: white;
+  color: #000000;
+}
+
+.fa-envelope {
+  background: white;
+  color: #000000;
+}
+
+</style>
 
 
 
