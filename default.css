@@ -309,7 +309,7 @@ ul.style2 a:hover {
 	padding: 7px 20px;
 	background: #22222D url(images/img01.png) repeat;
 	text-decoration: none;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	color: #FFFFFF;
 }
 
